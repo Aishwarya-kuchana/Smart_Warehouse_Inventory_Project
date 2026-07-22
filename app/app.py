@@ -22,7 +22,7 @@ This application detects warehouse inventory objects from uploaded images using 
 """)
 # Load YOLO Model
 
-MODEL_PATH = Path(__file__).resolve().parent.parent/"dataset" / "models" / "best.pt"
+MODEL_PATH = Path(__file__).resolve().parent.parent/"dataset" / "models" / "best_640.pt"
 model = YOLO(str(MODEL_PATH))
 st.success("YOLOv8 Model Loaded Successfully!")
 # Upload Image
