@@ -1,0 +1,31 @@
+train: images/train
+val: images/val
+test: images/test
+
+nc: 25
+names:
+  0: box
+  1: crate
+  2: barrel
+  3: bottle
+  4: pallet
+  5: rack
+  6: bracket
+  7: lamp
+  8: sign
+  9: wire
+  10: fuse_box
+  11: floor_decal
+  12: fire_extinguisher
+  13: barcode
+  14: wall
+  15: ceiling
+  16: floor
+  17: pillar
+  18: forklift
+  19: bucket
+  20: cone
+  21: cart
+  22: emergency_board
+  23: paper_note
+  24: paper_shortcut
