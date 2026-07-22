@@ -3,7 +3,10 @@
 An AI-powered warehouse inventory detection system built using **YOLOv8** and **Streamlit**. The application detects warehouse inventory objects from uploaded images, draws bounding boxes around detected objects, provides an inventory summary, and allows users to download the prediction results.
 
 ---
+## Live Demo
 
+🚀 **Streamlit App:https://smartwarehouseinventory-project-pburgxxgxypdknxjlsyryp.streamlit.app/
+---
 ## 🚀 Project Overview
 
 Warehouse inventory management is an essential part of logistics and supply chain operations. Manual inventory tracking is time-consuming and prone to errors.
