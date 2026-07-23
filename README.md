@@ -5,7 +5,10 @@ An AI-powered warehouse inventory detection system built using **YOLOv8** and **
 ---
 ## Live Demo
 
-🚀 **Streamlit App:https://smartwarehouseinventoryproject-9k9jfskt66cgjqsyu4ttic.streamlit.app/
+🚀 **Streamlit Application**
+https://smartwarehouseinventoryproject-9k9jfskt66cgjqsyu4ttic.streamlit.app/
+> Upload a warehouse image to detect inventory objects and generate an inventory summary.
+
 ---
 ## 🚀 Project Overview
 
@@ -19,8 +22,7 @@ This project uses a custom-trained **YOLOv8 Object Detection Model** to automati
 
 - Upload warehouse images
 - Automatic object detection using YOLOv8
-- Adjustable confidence threshold
-- Dynamic image size selection
+- Automatic image size selection based on uploaded image resolution
 - Bounding box visualization
 - Inventory summary with object counts
 - Detection confidence scores
@@ -43,38 +45,32 @@ This project uses a custom-trained **YOLOv8 Object Detection Model** to automati
 | Development | VS Code |
 
 ---
-
 ## 📂 Project Structure
-
-```text
-Smart-Warehouse-Inventory-Detection/
+```
+Smart_Warehouse_Inventory_Project/
 │
 ├── app/
 │   └── app.py
 │
 ├── dataset/
 │   ├── models/
-│   │   └── best.pt
+│   │   ├── best.pt
+│   │   └── best_640.pt
 │   ├── labels/
 │   └── data.yaml
 │
 ├── notebooks/
-│
 ├── output/
-│
+├── output_imgsz_640/
 ├── test_images/
 │
-├── utils/
-│
-├── requirements.txt
-├── train.py
-├── predict.py
+├── .gitattributes
 ├── .gitignore
+├── packages.txt
+├── requirements.txt
 └── README.md
 ```
-
 ---
-
 ## 📊 Dataset
 
 - Warehouse Inventory Object Detection Dataset
@@ -85,27 +81,47 @@ Smart-Warehouse-Inventory-Detection/
 > **Note:** The original training images are not included in this repository due to their large size.
 
 ---
+## 📈 Model Performance
 
+The YOLOv8 model was trained on a synthetic warehouse inventory dataset and evaluated on the validation set.
+
+| Metric | Value |
+|--------|-------:|
+| Model | YOLOv8n |
+| Image Size | 640 × 640 |
+| Precision | 0.6960 |
+| Recall | 0.5670 |
+| mAP@0.5 | 0.6148 |
+
+**Model Comparison**
+
+| Image Size | Precision | Recall | mAP@0.5 |
+|------------|----------:|-------:|---------:|
+| 512 × 512 | 0.6569 | 0.5392 | 0.5880 |
+| **640 × 640** | **0.6960** | **0.5670** | **0.6148** |
+
+The 640×640 model achieved better detection performance across all evaluation metrics and was selected for deployment in the Streamlit application.
+The deployed Streamlit application uses the **best_640.pt** model for inference.
+---
 ## ⚙️ Installation
 
-Clone the repository
+### Clone the repository
 
 ```bash
-git clone https://github.com/<your-github-username>/Smart-Warehouse-Inventory-Detection.git
+git clone https://github.com/Aishwarya-kuchana/Smart_Warehouse_Inventory_Project.git
 ```
 
-Navigate to the project directory
+### Navigate to the project directory
 
 ```bash
-cd Smart-Warehouse-Inventory-Detection
+cd Smart_Warehouse_Inventory_Project
 ```
 
-Install dependencies
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
-
 ---
 
 ## ▶️ Run the Application
@@ -121,11 +137,10 @@ The application will open in your browser.
 ## 📷 Application Workflow
 
 1. Upload a warehouse image.
-2. Adjust the confidence threshold if required.
-3. Detect warehouse inventory objects.
-4. View detected objects with bounding boxes.
-5. Review inventory summary and confidence scores.
-6. Download the prediction image.
+2. Detect warehouse inventory objects.
+3. View detected objects with bounding boxes.
+4. Review inventory summary and confidence scores.
+5. Download the prediction image.
 
 ---
 
@@ -146,6 +161,12 @@ The application will open in your browser.
 
 <img width="1280" height="680" alt="image" src="https://github.com/user-attachments/assets/a58dc6ca-2b05-4b4e-b078-350f7cccaad1" />
 
+---
+## ⚠️ Limitations
+
+- The model was trained on a synthetic warehouse dataset.
+- Performance may decrease on some real-world warehouse images because of differences in lighting, object appearance, and camera angles.
+- Performance depends on the similarity between uploaded images and the training dataset.
 ---
 
 ## 📈 Future Enhancements
@@ -170,3 +191,5 @@ LinkedIn: https://www.linkedin.com/in/aishwarya-kuchana/
 ---
 
 ## ⭐ If you found this project useful
+
+If you found this project helpful, consider giving it a ⭐ on GitHub.
