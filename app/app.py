@@ -23,24 +23,20 @@ This application detects warehouse inventory objects from uploaded images using 
 # Load YOLO Model
 
 MODEL_PATH = Path(__file__).resolve().parent.parent/"dataset" / "models" / "best_640.pt"
-model = YOLO(str(MODEL_PATH))
+@st.cache_resource
+def load_model():
+    return YOLO(str(MODEL_PATH))
+
+model = load_model()
 st.success("YOLOv8 Model Loaded Successfully!")
 # Upload Image
 
-st.sidebar.header("⚙ Settings")
-
-uploaded_file = st.sidebar.file_uploader(
+uploaded_file = st.file_uploader(
     "Upload Warehouse Image",
     type=["jpg","jpeg","png"]
 )
 
-confidence = st.sidebar.slider(
-    "Confidence Threshold",
-    min_value=0.05,
-    max_value=0.90,
-    value=0.25,
-    step=0.05
-)
+
 if uploaded_file is not None:
 
     image = Image.open(uploaded_file).convert("RGB")
@@ -58,7 +54,7 @@ if uploaded_file is not None:
     st.info(f"""
             Image Resolution : {width} × {height}
             YOLO Image Size : {imgsz}
-            Confidence Threshold : {confidence:.2f}"""
+            """
             )
     col1, col2 = st.columns(2)
     with col1:
@@ -68,8 +64,6 @@ if uploaded_file is not None:
             caption="Uploaded Image",
             use_container_width=True
         )
-    # Convert PIL Image to NumPy array
-    # image_array = np.array(image)
 
 # Save uploaded image temporarily
 
@@ -79,17 +73,17 @@ if uploaded_file is not None:
 # Run YOLO Prediction
 
     try:
+        with st.spinner("🔍 Detecting warehouse objects..."):
+            start_time = time.time()
 
-        start_time = time.time()
+            results = model.predict(
+             source=str(temp_path),
+             imgsz=imgsz,
+             conf=0.25,
+             verbose=False
+            )
 
-        results = model.predict(
-         source=str(temp_path),
-         imgsz=imgsz,
-         conf=confidence,
-         verbose=False
-        )
-
-        end_time = time.time()
+            end_time = time.time()
 
     except Exception as e:
 
@@ -97,9 +91,9 @@ if uploaded_file is not None:
         st.stop()
 
     result = results[0]
-    
+    if temp_path.exists():
+        temp_path.unlink()
     processing_time = end_time - start_time
-    # Draw Bounding Box
     predicted_image=result.plot()
 
     # Convert OpenCV image to PIL Image
@@ -144,7 +138,7 @@ if uploaded_file is not None:
     with metric2:
         st.metric(
         "Processing Time",
-        f"{processing_time:.2f} sec"
+        f"{processing_time*1000:.0f} ms"
     )
 
     if total_objects > 0:
