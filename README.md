@@ -5,7 +5,7 @@ An AI-powered warehouse inventory detection system built using **YOLOv8** and **
 ---
 ## Live Demo
 
-🚀 **Streamlit App:https://smartwarehouseinventory-project-pburgxxgxypdknxjlsyryp.streamlit.app/
+🚀 **Streamlit App:https://smartwarehouseinventoryproject-9k9jfskt66cgjqsyu4ttic.streamlit.app/
 ---
 ## 🚀 Project Overview
 
