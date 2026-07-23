@@ -133,18 +133,18 @@ The application will open in your browser.
 
 ### Home Page
 
-<img width="1280" height="680" alt="image" src="https://github.com/user-attachments/assets/42b86148-0bb4-4919-9844-b78090199b4c" />
+<img width="1280" height="680" alt="image" src="https://github.com/user-attachments/assets/651eb7a9-994d-4a2f-bd75-a800fda0fe3e" />
+
 
 
 ### Detection Result
 
-<img width="1280" height="680" alt="image" src="https://github.com/user-attachments/assets/9a9909d3-18d5-4946-a644-85d4bf5f8b1c" />
+<img width="1280" height="680" alt="image" src="https://github.com/user-attachments/assets/e09ad917-b44b-45b6-9cd8-e917cbe35570" />
 
 
 ### Inventory Summary
 
-<img width="1280" height="680" alt="image" src="https://github.com/user-attachments/assets/8e67d09c-06f5-4684-84d3-452c01fb6b7a" />
-
+<img width="1280" height="680" alt="image" src="https://github.com/user-attachments/assets/a58dc6ca-2b05-4b4e-b078-350f7cccaad1" />
 
 ---
 
